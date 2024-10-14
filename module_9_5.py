@@ -20,8 +20,12 @@ class Iterator:
 
     def __next__(self):
         o = []
-        for i in range(self.start, self.stop, self.step):
-            o.append(i)
+        if self.start < self.stop:
+            for i in range(self.start, self.stop + 1, self.step):
+                o.append(i)
+        else:
+            for i in range(self.start, self.stop - 1, self.step):
+                o.append(i)
         return o
 
 
@@ -58,3 +62,4 @@ for i in iter5:
         print(g, end=' ')
     break
 print()
+
